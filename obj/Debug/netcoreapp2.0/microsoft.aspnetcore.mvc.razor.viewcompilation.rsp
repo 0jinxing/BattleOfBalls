@@ -1,0 +1,9 @@
+C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls
+--output-path=obj\Debug\netcoreapp2.0\
+--application-name=BattleOfBalls
+--content-root=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls
+--file=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\Views\Home\Index.cshtml
+--file=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\Views\Shared\Index.cshtml
+--file=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\Views\Shared\_Layout.cshtml
+--file=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\Views\_ViewImports.cshtml
+--file=C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\Views\_ViewStart.cshtml

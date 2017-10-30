@@ -1,0 +1,17 @@
+﻿.context {
+    padding: 0 5%;
+}
+#game {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    padding: 0;
+    margin: 5% auto 0;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .2);
+    z-index: 9999;
+}
+#game canvas {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+}
