@@ -8,11 +8,11 @@ connect();
 var lastGetMessage = (new Date()).valueOf();
 setInterval(function () {
     if (socket.readyState != 1) return;
-    else if ((new Date()).valueOf() - lastGetMessage > 480) {
+    else if ((new Date()).valueOf() - lastGetMessage > 600) {
         console.log("连接中");
         connect();
     }
-}, 480);
+}, 1000);
 
 function connect() {
     socket = new WebSocket(scheme + "://" + document.location.hostname + port);
@@ -26,7 +26,7 @@ function connect() {
                 } catch (e){ }
                 controlMsg.isBurst = false;
             }
-        }, 160);
+        }, 200);
     };
 
     socket.onmessage = function (event) {

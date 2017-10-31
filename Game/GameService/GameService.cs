@@ -19,7 +19,7 @@ namespace BattleOfBalls.Game.GameService
         private static int _timer = 0;
         private static void OnGameTimerEvent(object source, ElapsedEventArgs e)
         {
-            if (_timer >= 4)
+            if (_timer >= 8)
             {
                 Game.Maintain();
                 Game.Collision();

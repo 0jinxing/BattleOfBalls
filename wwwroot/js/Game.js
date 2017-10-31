@@ -71,7 +71,7 @@ function flush(x, y, scale) {
     prop_context.clearRect(0, 0, _width, _height);
     player_context.clearRect(0, 0, _width, _height);
     // 绘制
-    background_context.drawImage(tmp_background_canvas, x, y, scale * _width, scale * _height, 0, 0, _width, _height);
+    background_context.drawImage(tmp_background_canvas, x / 1.4, y / 1.4, scale * _width, scale * _height, 0, 0, _width, _height);
     prop_context.drawImage(tmp_prop_canvas, x, y, scale * _width, scale * _height, 0, 0, _width, _height);
     player_context.drawImage(tmp_player_canvas, x, y, scale * _width, scale * _height, 0, 0, _width, _height);
 }
@@ -82,24 +82,6 @@ function gameUpdate() {
         if (!tmpPlayers || tmpPlayers.length != gameData.GamePlayers.length) {
             tmpPlayers = gameData.GamePlayers;
             return;
-        }
-        for (var _i = 0; _i < tmpPlayers.length; _i++) {
-            var player = tmpPlayers[_i];
-            for (var _j = 0; _j < player.Balls.length; _j++) {
-                var ball = player.Balls[_j];
-                var targetX = player.TargetX;
-                var targetY = player.TargetY;
-                var offsetX = (ball.Speed * (targetX - ball.PositionX)) / Math.sqrt(Math.pow((targetX - ball.PositionX), 2)
-                    + Math.pow((targetY - ball.PositionY), 2));
-                var offsetY = (ball.Speed * (targetY - ball.PositionY)) / Math.sqrt(Math.pow((targetX - ball.PositionX), 2)
-                    + Math.pow((targetY - ball.PositionY), 2));
-
-                ball.PositionX += offsetX;
-                ball.PositionY += offsetY;
-
-                ball.PositionX = Math.min(Math.max(ball.Radius, ball.PositionX), _stageWidth - ball.Radius);
-                ball.PositionY = Math.min(Math.max(ball.Radius, ball.PositionY), _stageHeight - ball.Radius);
-            }
         }
         for (var _i = 0; _i < tmpPlayers.length; _i++) {
             var player0 = gameData.GamePlayers[_i];
@@ -113,12 +95,35 @@ function gameUpdate() {
             for (var _j = 0; _j < player1.Balls.length; _j++) {
                 var ball0 = player0.Balls[_j];
                 var ball1 = player1.Balls[_j];
+                ball1.Speed = ball0.Speed;
                 ball1.Radius = ball0.Radius;
+                player1.TargetX = player0.TargetX;
+                player1.TargetY = player0.TargetY;
+                var targetX = player1.TargetX;
+                var targetY = player1.TargetY;
+                var offsetX = (ball1.Speed * (targetX - ball1.PositionX)) / Math.sqrt(Math.pow((targetX - ball1.PositionX), 2)
+                    + Math.pow((targetY - ball1.PositionY), 2));
+                var offsetY = (ball1.Speed * (targetY - ball1.PositionY)) / Math.sqrt(Math.pow((targetX - ball1.PositionX), 2)
+                    + Math.pow((targetY - ball1.PositionY), 2));
+
                 if (Math.sqrt(Math.pow(ball0.PositionX - ball1.PositionX, 2)
-                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > Math.sqrt(ball0.Radius) / 4) {
+                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > 8) {
+                    ball1.PositionX += (offsetX + (ball0.PositionX - ball1.PositionX) / 16);
+                    ball1.PositionY += (offsetY + (ball0.PositionY - ball1.PositionY) / 16);
+                }
+                else {
+                    ball1.PositionX += offsetX;
+                    ball1.PositionY += offsetY;
+                }
+                if (Math.abs(ball0.Radius- ball1.Radius) > 0.1) {
                     ball1.PositionX = (ball0.PositionX + ball1.PositionX) / 2;
                     ball1.PositionY = (ball0.PositionY + ball1.PositionY) / 2;
                 }
+
+                ball1.PositionX = Math.min(Math.max(ball1.Radius, ball1.PositionX), _stageWidth - ball1.Radius);
+                ball1.PositionY = Math.min(Math.max(ball1.Radius, ball1.PositionY), _stageHeight - ball1.Radius);
+
+
                 if (!tmpMaxBall) tmpMaxBall = ball1;
                 if (tmpMaxBall.Radius < ball1.Radius) tmpMaxBall = ball1
             }
