@@ -12526,11 +12526,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\lin\\Desktop\\BattleOfBalls\\BattleOfBalls\\BattleOfBalls.csproj",
+      "projectUniqueName": "C:\\Users\\lin\\Documents\\BattleOfBalls\\BattleOfBalls\\BattleOfBalls.csproj",
       "projectName": "BattleOfBalls",
-      "projectPath": "C:\\Users\\lin\\Desktop\\BattleOfBalls\\BattleOfBalls\\BattleOfBalls.csproj",
+      "projectPath": "C:\\Users\\lin\\Documents\\BattleOfBalls\\BattleOfBalls\\BattleOfBalls.csproj",
       "packagesPath": "C:\\Users\\lin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lin\\Desktop\\BattleOfBalls\\BattleOfBalls\\obj\\",
+      "outputPath": "C:\\Users\\lin\\Documents\\BattleOfBalls\\BattleOfBalls\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

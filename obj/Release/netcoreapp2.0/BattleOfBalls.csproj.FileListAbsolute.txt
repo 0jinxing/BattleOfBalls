@@ -9,3 +9,14 @@ C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\Battl
 C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.AssemblyInfo.cs
 C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.dll
 C:\Users\lin\Desktop\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.pdb
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\bin\Release\netcoreapp2.0\BattleOfBalls.deps.json
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\bin\Release\netcoreapp2.0\BattleOfBalls.runtimeconfig.json
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\bin\Release\netcoreapp2.0\BattleOfBalls.runtimeconfig.dev.json
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\bin\Release\netcoreapp2.0\BattleOfBalls.dll
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\bin\Release\netcoreapp2.0\BattleOfBalls.pdb
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.csprojResolveAssemblyReference.cache
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.csproj.CoreCompileInputs.cache
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.AssemblyInfoInputs.cache
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.AssemblyInfo.cs
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.dll
+C:\Users\lin\Documents\BattleOfBalls\BattleOfBalls\obj\Release\netcoreapp2.0\BattleOfBalls.pdb

@@ -9,7 +9,9 @@
     margin: 0;
     padding: 0;
 }
-
+#range_list {
+    font-size: 16px;
+}
 .inline_div, #game_msg {
     display: inline-block;
     line-height: 34px;
