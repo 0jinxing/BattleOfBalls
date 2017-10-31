@@ -67,8 +67,8 @@ namespace BattleOfBalls.Game
         private readonly static Random _random = new Random();
 
         // 舞台的大小
-        public readonly static int StageWidth = 1024 * 4;
-        public readonly static int StageHeight = 1024 * 4;
+        public readonly static int StageWidth = 1024*4;
+        public readonly static int StageHeight = 1024*4;
         // 用于Dot与Ball的颜色
         public readonly static string[] Colors = new string[] { "#F17C67", "#495A80", "#BDB76A", "#FD5B78", "#ACE1AF" };
 

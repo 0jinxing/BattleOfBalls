@@ -21,10 +21,12 @@ function connect() {
         syncTimer = setInterval(function () {
             if (socket.readyState == 1) {
                 var msg = JSON.stringify(controlMsg);
-                socket.send(msg);
+                try {
+                    socket.send(msg);
+                } catch (e){ }
                 controlMsg.isBurst = false;
             }
-        }, 120);
+        }, 160);
     };
 
     socket.onmessage = function (event) {

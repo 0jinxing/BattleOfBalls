@@ -16,11 +16,17 @@ namespace BattleOfBalls.Game.GameService
             gameTimer.Interval = 1000 / 60;
             gameTimer.Enabled = true;
         }
+        private static int _timer = 0;
         private static void OnGameTimerEvent(object source, ElapsedEventArgs e)
         {
+            if (_timer >= 4)
+            {
                 Game.Maintain();
                 Game.Collision();
-                Game.Update();
+                _timer = 0;
+            }
+            Game.Update();
+            _timer++;
         }
         public static IServiceCollection AddGameService(this IServiceCollection services)
         {

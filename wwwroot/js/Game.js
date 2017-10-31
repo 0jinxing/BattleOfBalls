@@ -53,7 +53,7 @@ function drawFillArc(context, x, y, radius, color) {
     // 画边框
     context.beginPath();
     context.arc(x, y, radius * (1 - 1 / 16), 0, Math.PI * 2);
-    context.strokeStyle = "rgba(255,255,255,0.4)"
+    context.strokeStyle = "rgba(255,255,255,0.2)"
     if (animationCount % 4000 < 2000) {
         context.lineWidth = radius / 32
     }
@@ -154,7 +154,7 @@ function gameDisplay() {
         player = tmpPlayers[gameData.Index];
     } catch (e) { player = null; }
     if (player != null) {
-        _visionScale = Math.pow(player.Score / 16, 1 / 4);
+        _visionScale = Math.pow(player.Score / 24, 1 / 8);
         if (!_visionCenterX || !_visionCenterY) {
             _visionCenterX = player.PositionX;
             _visionCenterY = player.PositionY;
