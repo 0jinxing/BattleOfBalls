@@ -43,6 +43,7 @@ var player_context = $background_canvas.getContext("2d");
     tmp_background_context.closePath();
     tmp_background_context.stroke();
 })();
+var animationCount = 0
 function drawFillArc(context, x, y, radius, color) {
     context.fillStyle = color;
     context.beginPath();
@@ -52,8 +53,15 @@ function drawFillArc(context, x, y, radius, color) {
     // 画边框
     context.beginPath();
     context.arc(x, y, radius * (1 - 1 / 16), 0, Math.PI * 2);
-    context.strokeStyle = "rgba(255,255,255,0.6)"
-    context.lineWidth = radius / 8;
+    context.strokeStyle = "rgba(255,255,255,0.4)"
+    if (animationCount % 4000 < 2000) {
+        context.lineWidth = radius / 32
+    }
+    else {
+        context.lineWidth = radius / 8
+    }
+    animationCount++;
+    animationCount %= 4000;
     context.closePath();
     context.stroke();
 }
@@ -96,6 +104,7 @@ function gameUpdate() {
         for (var _i = 0; _i < tmpPlayers.length; _i++) {
             var player0 = gameData.GamePlayers[_i];
             var player1 = tmpPlayers[_i];
+            player1.Score = player0.Score;
             if (player0.Balls.length != player1.Balls.length) {
                 tmpPlayers[_i] = player0;
                 continue;
@@ -106,12 +115,12 @@ function gameUpdate() {
                 var ball1 = player1.Balls[_j];
                 ball1.Radius = ball0.Radius;
                 if (Math.sqrt(Math.pow(ball0.PositionX - ball1.PositionX, 2)
-                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > Math.sqrt(ball0.Radius)) {
+                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > Math.sqrt(ball0.Radius) / 4) {
                     ball1.PositionX = (ball0.PositionX + ball1.PositionX) / 2;
                     ball1.PositionY = (ball0.PositionY + ball1.PositionY) / 2;
                 }
                 if (!tmpMaxBall) tmpMaxBall = ball1;
-                if(tmpMaxBall.Radius<ball1.Radius) tmpMaxBall = ball1
+                if (tmpMaxBall.Radius < ball1.Radius) tmpMaxBall = ball1
             }
             player1.PositionX = tmpMaxBall.PositionX;
             player1.PositionY = tmpMaxBall.PositionY;

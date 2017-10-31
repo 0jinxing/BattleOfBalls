@@ -30,3 +30,5 @@ var gameData = {
     ID: -1,
     Key: -1
 };
+
+var sortPlaters = [];

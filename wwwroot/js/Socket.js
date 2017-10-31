@@ -24,7 +24,7 @@ function connect() {
                 socket.send(msg);
                 controlMsg.isBurst = false;
             }
-        }, 140);
+        }, 120);
     };
 
     socket.onmessage = function (event) {

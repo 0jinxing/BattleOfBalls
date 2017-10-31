@@ -32,7 +32,7 @@ namespace BattleOfBalls
             app.UseStaticFiles();
             app.UseWebSockets(new WebSocketOptions()
             {
-                KeepAliveInterval = TimeSpan.FromSeconds(140),
+                KeepAliveInterval = TimeSpan.FromSeconds(120),
                 ReceiveBufferSize = 512
             });
             app.UseGameSocket();

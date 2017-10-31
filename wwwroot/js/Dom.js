@@ -1,18 +1,23 @@
-function _$(s) {
-    return Array.prototype.slice.call(
-        document.querySelectorAll(s)
-    );
-}
+var $start = $("#start");
+var $game = $("#game");
 
-var _$start = _$("#start")[0];
-var _$game = _$("#game")[0];
+$start.click(function () {
+    if (!$("#user_name").val()) {
+        $("#input_tab").addClass("has-error");
+        $start.addClass("btn-danger");
+        $("#error").removeClass("hidden");
+        return;
+    }
+    $("#input_tab").removeClass("has-error");
+    $start.removeClass("btn-danger");
+    $("#error").addClass("hidden");
 
-_$start.onclick = function () {
-    controlMsg.userName = _$("#user_name")[0].value.trim() || "匿名玩家";
+    controlMsg.userName = !$("#user_name").val() ? "匿名玩家" : $("#user_name").val();
     controlMsg.inGame = true;
-}
+    socket.send(JSON.stringify(controlMsg));
+});
 var controlTimer;
-_$game.onmousemove = function (event) {
+$game.mousemove(function (event) {
     event = event || window.event;
     var offsetX = event.offsetX;
     var offsetY = event.offsetY;
@@ -23,11 +28,31 @@ _$game.onmousemove = function (event) {
         controlMsg.targetX = _leftX + offsetX * _visionScale;
         controlMsg.targetY = _leftY + offsetY * _visionScale;
     }, 140);
-}
-document.onkeyup = function (event) {
+})
+$(document).keyup(function (event) {
     event = event || window.event;
     if (event.keyCode == 65) {
         if (controlMsg.isBurst) return;
         controlMsg.isBurst = true;
     }
-}
+})
+
+var domTimer = setInterval(function () {
+    if (controlMsg.inGame) {
+        $("#input_tab").hide();
+        $("#game_msg").show();
+    } else {
+        $("#input_tab").show();
+        $("#game_msg").hide();
+    }
+    var sortPlaters = Array.prototype.slice.call(gameData.GamePlayers);
+    sortPlaters.sort(function (p0, p1) {
+        return -(p0.Score - p1.Score);
+    });
+    var listHtmlStr = "";
+    for (var _i = 0; _i < sortPlaters.length; _i++) {
+        listHtmlStr += "<li>" + sortPlaters[_i].UserName + "</li>";
+    }
+    $("#range_list").html(listHtmlStr);
+
+}, 120);

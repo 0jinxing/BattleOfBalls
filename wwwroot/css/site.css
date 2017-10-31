@@ -1,17 +1,62 @@
-﻿.context {
-    padding: 0 5%;
+﻿div.container {
+    padding: 0;
+    width: 1200px;
 }
+
+.clear {
+    height: 34px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.inline_div, #game_msg {
+    display: inline-block;
+    line-height: 34px;
+    width: 900px;
+}
+
+    .inline_div * {
+        margin-right: 12px;
+    }
+
+    .inline_div .form-control {
+        width: 240px;
+    }
+
+    .inline_div .btn, .inline_div .form-control {
+        display: inline-block;
+        float: left;
+    }
+
+#range_card {
+    width: 300px;
+    height: 600px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 2px dashed #ccc;
+    padding: 14px;
+}
+
+#game_msg {
+    display: none;
+}
+
 #game {
     position: relative;
-    width: 900px;
+    width: 1200px;
     height: 600px;
     padding: 0;
-    margin: 5% auto 0;
+    margin: 14px 0;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .2);
     z-index: 9999;
 }
-#game canvas {
-    position: absolute;
-    top: 0; left: 0;
-    bottom: 0; right: 0;
-}
+
+    #game canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }

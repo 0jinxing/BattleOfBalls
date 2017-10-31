@@ -2,24 +2,33 @@
     ViewData["Title"] = "Test";
 }
 @section Styles{
-    <link rel="stylesheet" href="~/css/normalize.css" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 }
 @section Scripts{
+    <script src="~/js/jquery-3.2.1.min.js"></script>
     <script src="~/js/Data.js"></script>
     <script src="~/js/Dom.js"></script>
     <script src="~/js/Game.js"></script>
     <script src="~/js/Socket.js"></script>
 }
-<div class="context">
-    <div class="nav">
-        <label for="user_name">输入用户名</label>
-        <input type="text" id="user_name" name="user_name" value="" placeholder="用户名">
-        <button id="start">开始</button>
+<div class="container">
+    <h1 class="page-header">球球大作战</h1>
+    <div class="clear">
+        <div class="inline_div" id="input_tab">
+            <input type="text" id="user_name" required class="form-control" name="user_name" value="" placeholder="用户名">
+            <a href="javascript:;" id="start" class="btn btn-default">开始</a>
+            <span id="error" class="help-block hidden">用户名不能为空</span>
+        </div>
+        <div id="game_msg">正在游戏</div>
     </div>
     <div id="game" tabindex="0" contenteditable="true">
         <canvas id="player" width="900" height="600"></canvas>
         <canvas id="prop" width="900" height="600"></canvas>
         <canvas id="background" width="900" height="600"></canvas>
+        <div id="range_card">
+            <h4 class="page-header">当前玩家</h4>
+            <ol id="range_list"></ol>
+        </div>
     </div>
 </div>
