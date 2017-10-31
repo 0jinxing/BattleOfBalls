@@ -20,7 +20,7 @@ namespace BattleOfBalls.Core
         {
             get
             {
-                return Math.Max(0.8, 1.6 - Math.Sqrt(Radius) * 0.1);
+                return Math.Max(1.2, 2.4 - Math.Sqrt(Radius) * 0.01);
             }
         }
         public double Volume

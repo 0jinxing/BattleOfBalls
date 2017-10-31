@@ -21,7 +21,7 @@ namespace BattleOfBalls
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseKestrel()
-                .UseUrls("http://localhost:5000")
+                .UseUrls("http://*:5000")
                 .Build();
     }
 }

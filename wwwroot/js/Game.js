@@ -100,18 +100,21 @@ function gameUpdate() {
                 tmpPlayers[_i] = player0;
                 continue;
             }
-            for (var _j = 0; _j < tmpPlayers[_i].Balls.length; _j++) {
+            var tmpMaxBall = null;
+            for (var _j = 0; _j < player1.Balls.length; _j++) {
                 var ball0 = player0.Balls[_j];
                 var ball1 = player1.Balls[_j];
                 ball1.Radius = ball0.Radius;
                 if (Math.sqrt(Math.pow(ball0.PositionX - ball1.PositionX, 2)
-                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > 2) {
+                    + Math.pow(ball0.PositionY - ball1.PositionY, 2)) > Math.sqrt(ball0.Radius)) {
                     ball1.PositionX = (ball0.PositionX + ball1.PositionX) / 2;
                     ball1.PositionY = (ball0.PositionY + ball1.PositionY) / 2;
                 }
-                player1.PositionX = (player1.PositionX + player0.PositionX) / 2;
-                player1.PositionY = (player1.PositionY + player0.PositionY) / 2;
+                if (!tmpMaxBall) tmpMaxBall = ball1;
+                if(tmpMaxBall.Radius<ball1.Radius) tmpMaxBall = ball1
             }
+            player1.PositionX = tmpMaxBall.PositionX;
+            player1.PositionY = tmpMaxBall.PositionY;
         }
     } catch (e) {
         tmpPlayers = gameData.GamePlayers;
