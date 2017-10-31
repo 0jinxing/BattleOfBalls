@@ -53,7 +53,7 @@ function drawFillArc(context, x, y, radius, color) {
     // 画边框
     context.beginPath();
     context.arc(x, y, radius * (1 - 1 / 16), 0, Math.PI * 2);
-    context.strokeStyle = "rgba(255,255,255,0.2)"
+    context.strokeStyle = "rgba(255,255,255,0.4)"
     if (animationCount % 4000 < 2000) {
         context.lineWidth = radius / 32
     }

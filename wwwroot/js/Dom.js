@@ -1,5 +1,5 @@
 var $start = $("#start");
-var $game = $("#game");
+var $stage= $("#stage");
 
 $start.click(function () {
     if (!$("#user_name").val()) {
@@ -17,7 +17,7 @@ $start.click(function () {
     socket.send(JSON.stringify(controlMsg));
 });
 var controlTimer;
-$game.mousemove(function (event) {
+$stage.mousemove(function (event) {
     event = event || window.event;
     var offsetX = event.offsetX;
     var offsetY = event.offsetY;

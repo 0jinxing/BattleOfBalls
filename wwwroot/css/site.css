@@ -29,6 +29,14 @@
         float: left;
     }
 
+#stage {
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 900px;
+    height: 600px;
+}
+
 #range_card {
     width: 300px;
     height: 600px;

@@ -76,11 +76,11 @@ namespace BattleOfBalls.Game
             {
                 Ball ball = Balls[i];
                 if (ball == MaxBall) continue;
-                if (random.Next(100*Balls.Count) == 1)
+                if (random.Next(40*Balls.Count) == 1)
                 {
                     double distance = Math.Sqrt(Math.Pow(MaxBall.PositionX - ball.PositionX, 2) +
                              Math.Pow(MaxBall.PositionY - ball.PositionY, 2));
-                    if (distance > MaxBall.Radius) continue;
+                    if (distance > MaxBall.Radius+ball.Radius) continue;
                     double fuseVolume = ball.Volume + MaxBall.Volume;
                     MaxBall.Radius = Math.Sqrt(fuseVolume / Math.PI);
                     Balls.Remove(ball);
